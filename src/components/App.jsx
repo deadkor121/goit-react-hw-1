@@ -19,7 +19,6 @@ export default function App() {
         avatar={user.avatar}
         stats={user.stats}
       />
-      
       <FriendList friends={friends} />;
       <TransactionHistory items={transactions} />;
     </>
