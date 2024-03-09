@@ -1,8 +1,5 @@
 import user from '../data/user.json';
 import Profile from './Profile/Profile';
-
-
-
 import friends from '../data/friends.json';
 import FriendList from './FriendList/FriendList';
 
