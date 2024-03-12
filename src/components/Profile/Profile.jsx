@@ -1,41 +1,30 @@
-import {
-  ProfileWrap,
-  Description,
-  Avatar,
-  Name,
-  Tag,
-  Location,
-  Stats,
-  ListItem,
-  Label,
-  Quantity,
-} from './Profile.styled';
+import clsx from 'clsx';
+import css from './Profile.module.css';
 
-const Profile = ({ username, tag, location, avatar, stats }) => {
+const Profile = ({ name, tag, location, image, stats }) => {
   return (
-    <ProfileWrap>
-      <Description>
-        <Avatar src={avatar} alt={username} />
-        <Name>{username}</Name>
-        <Tag>@{tag}</Tag>
-        <Location>{location}</Location>
-      </Description>
-
-      <Stats>
-        <ListItem>
-          <Label>Followers</Label>
-          <Quantity>{stats.followers}</Quantity>
-        </ListItem>
-        <ListItem>
-          <Label>Views</Label>
-          <Quantity>{stats.views}</Quantity>
-        </ListItem>
-        <ListItem>
-          <Label>Likes</Label>
-          <Quantity>{stats.likes}</Quantity>
-        </ListItem>
-      </Stats>
-    </ProfileWrap>
+    <div className={clsx(css.mainboxCardUser)}>
+      <div className={clsx(css.boxUserCard)}>
+        <img className={clsx(css.userImg)} src={image} alt="User avatar" />
+        <p className={clsx(css.titleInfoCard)}>{name}</p>
+        <p className={clsx(css.textInfoCard)}>@{tag}</p>
+        <p className={clsx(css.textInfoCard)}>{location}</p>
+      </div>
+      <ul className={clsx(css.cardList)}>
+        <li className={clsx(css.cardItem)}>
+          <span>Followers</span>
+          <span>{stats.followers}</span>
+        </li>
+        <li className={clsx(css.cardItem)}>
+          <span>Views</span>
+          <span>{stats.views}</span>
+        </li>
+        <li className={clsx(css.cardItem)}>
+          <span>Likes</span>
+          <span>{stats.likes}</span>
+        </li>
+      </ul>
+    </div>
   );
 };
 
